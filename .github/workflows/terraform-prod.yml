@@ -5,12 +5,18 @@ on:
     branches:
       - main
     paths:
-      - "terraform-project/**"
+      - ".github/workflows/terraform-prod.yml"
+      - "environments/prod/**"
+      - "modules/**"
+      - "versions.tf"
   push:
     branches:
       - main
     paths:
-      - "terraform-project/**"
+      - ".github/workflows/terraform-prod.yml"
+      - "environments/prod/**"
+      - "modules/**"
+      - "versions.tf"
   workflow_dispatch:
 
 permissions:
@@ -19,7 +25,7 @@ permissions:
 
 env:
   TF_VERSION: 1.15.2
-  TF_WORKING_DIR: terraform-project/environments/prod
+  TF_WORKING_DIR: environments/prod
   ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
   ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
   ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
@@ -58,7 +64,7 @@ jobs:
         run: terraform validate
 
       - name: Terraform Format Check
-        working-directory: terraform-project
+        working-directory: .
         run: terraform fmt -check -recursive
 
       - name: Terraform Plan
