@@ -5,12 +5,17 @@ on:
     branches:
       - main
     paths:
-      - "terraform-project/**"
+      - ".github/workflows/terraform-dev.yml"
+      - "environments/dev/**"
+      - "modules/**"
+      - "versions.tf"
   push:
     branches:
       - main
     paths:
-      - "terraform-project/**"
+      - "environments/dev/**"
+      - "modules/**"
+      - "versions.tf"
   workflow_dispatch:
 
 permissions:
@@ -56,7 +61,7 @@ jobs:
         run: terraform validate
 
       - name: Terraform Format Check
-        working-directory: terraform-project
+        working-directory: ${{ env.TF_WORKING_DIR }}
         run: terraform fmt -check -recursive
 
       - name: Terraform Plan
