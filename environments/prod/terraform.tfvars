@@ -1,7 +1,7 @@
 location                  = "eastus2"
 vnet_address_space        = ["10.20.0.0/16"]
 subnet_address_prefixes   = ["10.20.1.0/24"]
-vm_size                   = "Standard_D2s_v5"
+vm_size                   = "Standard_D2s_v3"
 admin_username            = "tfprodadmin"
 rdp_source_address_prefix = "203.0.113.10/32"
 enable_auto_shutdown      = true

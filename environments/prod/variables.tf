@@ -19,7 +19,7 @@ variable "subnet_address_prefixes" {
 variable "vm_size" {
   description = "Prod Windows VM size."
   type        = string
-  default     = "Standard_D2s_v5"
+  default     = "Standard_D2s_v3"
 }
 
 variable "admin_username" {
