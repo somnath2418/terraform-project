@@ -4,6 +4,6 @@ resource "azurerm_resource_group" "this" {
   tags     = var.tags
 
   lifecycle {
-    prevent_destroy = var.prevent_destroy
+    prevent_destroy = true
   }
 }
